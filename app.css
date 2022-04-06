@@ -17,12 +17,20 @@ body > img {
 
 main {    
     position: absolute;
-    bottom: 35%;
+    bottom: 40%;
 }
 
 h1 {
     font-size: 63px;
     padding: 25px;
+}
+
+button {
+    padding: 12px;
+    background-color: blue;
+    border: 1px white;
+    border-radius: 6px;
+    color: white;
 }
 
 
