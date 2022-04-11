@@ -5,10 +5,8 @@ const ul = document.querySelector("ul")
 const h1 = document.querySelector("h1")
 
 fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${loc}&days=3`)
-    // fetch("assets/demoWeather.json")
     .then(response => response.json())
     .then(weatherForecast => {
-        console.log(weatherForecast)
         h1.textContent = weatherForecast.location.name
         ul.append(addCurrentDay(weatherForecast))
         const forecast = weatherForecast.forecast.forecastday
