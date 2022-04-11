@@ -31,6 +31,7 @@ h1 {
 
 button {
     margin-top: 25px;
+    margin-bottom: 50px;
     padding: 12px 24px;
     background-color: #256fb8;
     color: white;
@@ -39,12 +40,12 @@ button {
 }
 
 button:hover {
-    background-color: #256fb888;
+    background-color: #328de988;;
     transition: all .15s ease;
 }
 
 button:focus {
-    background-color: #256fb888;
+    background-color: #328de988;
     outline: 1px solid #fff;
     outline-offset: -4px;
 }
@@ -76,7 +77,7 @@ label, input, select, option, button {
 }
 
 li {
-    align-self: center;
+    align-self: baseline;
     list-style: none;
     padding: 35px 25px 50px 25px;
     width: 300px;
@@ -88,12 +89,12 @@ li {
 }
 
 li:hover {
-    background-color: #256fb888;
+    background-color: #328de988;
     transition: all .15s ease;
 }
 
 li:focus {
-    background-color: #256fb888;
+    background-color: #328de988;
     outline: 1px solid #fff;
     outline-offset: -4px;
 }
