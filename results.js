@@ -43,4 +43,37 @@ fetch(`assets/demoWeather.json`)
             }
         })
         ul.append(today)
+        const forecast = weatherForecast.forecast.forecastday
+            .slice(1, weatherForecast.forecast.forecastday.length)
+        forecast
+            .map(date => {
+                const dayOfWeek = new Date(`${date.date.slice(0, 4)}`, `${date.date.slice(5, 7) - 1}`, `${date.date.slice(8, 10)}`).toLocaleDateString('en-US', { weekday: 'long', })
+                const day = document.createElement("li")
+                day.innerHTML = `
+                    <h3>${dayOfWeek}</h3>
+                    <img src="${date.day.condition.icon}" alt="${date.day.condition.text}">
+                    <h3>High</h3>
+                    <h2>${Math.round(date.day.maxtemp_f)}°</h2>
+                    <p>${date.day.condition.text}</p>
+                    <p>Low: ${Math.round(date.day.mintemp_f)}°</p>
+                `
+                const details = document.createElement("div")
+                details.classList = "details hidden"
+                details.innerHTML = `
+                    <p>Sunrise: ${date.astro.sunrise}</p>
+                    <p>Sunset: ${date.astro.sunset}</p>
+                    `
+                day.append(details)
+                let isClicked = true
+                day.addEventListener("click", event => {
+                    if (isClicked) {
+                        details.classList.remove("hidden")
+                        isClicked = false
+                    } else {
+                        details.classList.add("hidden")
+                        isClicked = true
+                    }
+                })
+                ul.append(day)
+            })
     })
