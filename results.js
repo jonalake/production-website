@@ -3,11 +3,16 @@ const queryString = new URLSearchParams(window.location.search)
 const loc = `${queryString.get("location")} ${queryString.get("state")}`
 const ul = document.querySelector("ul")
 const h1 = document.querySelector("h1")
+const h4 = document.querySelector("h4")
+const button = document.querySelector("button")
 
 fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${loc}&days=3`)
     .then(response => response.json())
     .then(weatherForecast => {
-        h1.textContent = weatherForecast.location.name
+        console.log(weatherForecast)
+        const location = weatherForecast.location
+        h1.textContent = location.name
+        h4.textContent = `Displaying data for ${location.name}, ${location.region}, ${location.country}, as of ${location.localtime}`
         ul.append(addCurrentDay(weatherForecast))
         const forecast = weatherForecast.forecast.forecastday
             .slice(1, weatherForecast.forecast.forecastday.length)
@@ -18,6 +23,7 @@ fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${loc}&days=3`)
     })
     .catch(error => {
         h1.textContent = "No matching location found."
+        button.textContent = "Try Again"
         console.error(error)
     })
 
@@ -68,7 +74,6 @@ function addCurrentDay(weatherForecast) {
     return today
 }
 
-const button = document.querySelector("button")
 button.addEventListener("click", handleSubmit)
 
 function addForcastDay(date) {

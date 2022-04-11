@@ -114,6 +114,11 @@ h3 {
     font-weight: 400;
 }
 
+h4 {
+    font-weight: 200;
+    font-size: 14px;
+}
+
 p {
     padding-bottom: 3px;
     line-height: 20px;
