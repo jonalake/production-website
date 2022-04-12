@@ -16,6 +16,7 @@ fetch("./assets/states.json")
             const option = document.createElement("option")
             option.textContent = `${state.name}`
             option.value = `${state.state_code}`
+            option.name = "state"
             return option
         }).forEach(option => {
             stateDropdown.append(option)

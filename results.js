@@ -9,7 +9,6 @@ const button = document.querySelector("button")
 fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${loc}&days=3`)
     .then(response => response.json())
     .then(weatherForecast => {
-        console.log(weatherForecast)
         const location = weatherForecast.location
         h1.textContent = location.name
         h4.textContent = `Displaying data for ${location.name}, ${location.region}, ${location.country}, as of ${location.localtime}`

@@ -117,6 +117,7 @@ h3 {
 h4 {
     font-weight: 200;
     font-size: 14px;
+    margin-top: 25px;
 }
 
 p {
@@ -131,5 +132,10 @@ p {
 
 .hidden {
     display: none;
+}
+
+img.error {
+    min-width: 75px;
+    margin-bottom: 25px;
 }
 
