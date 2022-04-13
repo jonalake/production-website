@@ -9,7 +9,6 @@ const button = document.querySelector("button")
 fetch(`https://api.weatherapi.com/v1/forecast.json?key=${api}&q=${loc}&days=3`)
     .then(response => response.json())
     .then(weatherForecast => {
-        console.log(weatherForecast)
         setLocation(weatherForecast)
         ul.append(addCurrentDay(weatherForecast))
         const forecast = weatherForecast.forecast.forecastday
